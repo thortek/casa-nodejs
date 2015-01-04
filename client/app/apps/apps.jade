@@ -4,7 +4,7 @@ block content
   .container
     .row(ng-if="!loadingApps && !noApps")
       .col-md-2.col-lg-2.col-lg-offset-9.col-md-offset-9.group-button-row
-        .dropdown
+        .dropdown2
           button.btn.btn-default.dropdown-toggle(ng-repeat="option in groupOptions", ng-if="option.selected")
             span.drodown-button-label {{option.label}}
             span.caret
@@ -16,14 +16,18 @@ block content
           i.fa.fa-circle-o-notch.fa-spin
     .row(ng-if="!loadingApps")
 
+      // Apps in app boxes
+      .col-lg-10.col-lg-offset-1.appContainer(ng-if="!noApps && group !== 'peer'")
+        app-grid.apps(apps="apps", app-template="app/apps/app-box.html") didn't replace
+
       // Apps in single list
-      .col-lg-10.col-lg-offset-1(ng-if="!noApps && group !== 'peer'")
-        ul.list-group
-          li.list-group-item.app(ng-repeat="app in apps", ui-sref="singleApp({originatorId:app.identity.originator_id, appId:app.identity.id})", role="link")
-            div.icon(ng-if="!app.original.use.icon", style="{{'background-color:' + app.color + ';'}}")
-              span {{app.original.use.title.substring(0, 1)}}
-            img.icon(ng-if="app.original.use.icon" ng-src="{{app.original.use.icon}}")
-            span {{app.original.use.title}}
+      //.col-lg-10.col-lg-offset-1(ng-if="!noApps && group !== 'peer'")
+      //  ul.list-group
+      //    li.list-group-item.app(ng-repeat="app in apps", ui-sref="singleApp({originatorId:app.identity.originator_id, appId:app.identity.id})", role="link")
+      //      div.icon(ng-if="!app.original.use.icon", style="{{'background-color:' + app.color + ';'}}")
+      //        span {{app.original.use.title.substring(0, 1)}}
+      //      img.icon(ng-if="app.original.use.icon" ng-src="{{app.original.use.icon}}")
+      //      span {{app.original.use.title}}
 
       // Apps grouped by peer
       .col-lg-10.col-lg-offset-1(ng-if="!noApps && group === 'peer'")

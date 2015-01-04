@@ -1,0 +1,12 @@
+.row
+  .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.app-info
+    div {{app.attributes.use.description}}
+    div.authors
+      div.author(ng-repeat="author in app.attributes.use.authors")
+        div {{author.name}}
+        a(ng-href="mailto:{{author.email}}") {{author.email}}
+        a(ng-href="{{author.website}}") {{author.website}}
+    div.tags
+      code.tag(ng-repeat="tag in app.attributes.use.tags") {{tag}}
+
+//div {{app.original.use.title}}

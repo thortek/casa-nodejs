@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('casaNodejsApp')
-.controller('AppsCtrl', function ($scope, $http, $stateParams, appsService, peersService) {
+.controller('AppsCtrl', function ($scope, $http, $templateRequest, $stateParams, appsService, peersService) {
     $scope.apps = [];
     $scope.loadingApps = true;
 
